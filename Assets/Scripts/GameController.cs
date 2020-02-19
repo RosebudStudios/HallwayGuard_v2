@@ -15,6 +15,8 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
+
         health = 5;
         disrupter = 1;
 
@@ -26,6 +28,7 @@ public class GameController : MonoBehaviour
     void Awake()
     {
         Application.targetFrameRate = 60;
+        Cursor.visible = false;
     }
 
 
@@ -34,5 +37,10 @@ public class GameController : MonoBehaviour
     {
         healthtext.text = "Health: " + health;
         emptext.text = "Disrupters: " + disrupter;
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 }
